@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite both the article from preferred-citation and the software itself."
+title: "PET-FM-Bench: A Pre-Registered Cross-Foundation-Model Benchmark on Nuclear-Medicine Imaging Tasks with Systematic Contamination Audit"
+abstract: "Pre-registered cross-foundation-model benchmark on nine downstream nuclear-medicine imaging tasks. Evaluates six FMs (FMCIB, CT-FM, BiomedCLIP, RAD-DINO, DINOv2) plus a 10-seed random-initialisation control against an IBSI-compliant pyradiomics baseline (MIRP) using frozen-embedding linear or Cox probes. Includes a 54-cell (FM × task) contamination audit with five-tier confidence schema. Deterministic at SEED = 42. Pre-registered on OSF; twelve amendments logged before affected analyses ran."
+type: software
+authors:
+  - family-names: Farquhar
+    given-names: Hayden
+    name-suffix: MBBS MPHTM
+    orcid: "https://orcid.org/0009-0002-6226-440X"
+    email: hayden.farquhar@icloud.com
+    affiliation: "Independent Researcher, Finley NSW, Australia"
+license: MIT
+repository-code: "https://github.com/hayden-farquhar/PET-FM-Probe-Contamination"
+keywords:
+  - foundation models
+  - positron emission tomography
+  - PET
+  - benchmarking
+  - transfer learning
+  - contamination audit
+  - pre-registration
+  - IBSI radiomics
+  - test-retest reproducibility
+  - medical imaging
+identifiers:
+  - description: "OSF pre-registration"
+    type: doi
+    value: "10.17605/OSF.IO/DQ2JA"
+  - description: "Public Kaggle dataset of result CSVs"
+    type: url
+    value: "https://www.kaggle.com/datasets/haydenfarquhar/pet-fm-bench-formal-probe-results-v1"
+preferred-citation:
+  type: generic
+  title: "Pretraining Domain Predicts Test–Retest Reproducibility of Foundation Models on PET: A Pre-Registered Nine-Task Benchmark with Contamination Audit (PET-FM-Bench)"
+  authors:
+    - family-names: Farquhar
+      given-names: Hayden
+      orcid: "https://orcid.org/0009-0002-6226-440X"
+  year: 2026
+  doi: "10.17605/OSF.IO/DQ2JA"

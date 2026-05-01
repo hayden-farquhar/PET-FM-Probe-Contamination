@@ -1,0 +1,51 @@
+{
+  "title": "PET-FM-Bench: Pre-Registered Cross-Foundation-Model Benchmark on Nuclear-Medicine Imaging Tasks with Systematic Contamination Audit — Analysis Code",
+  "upload_type": "software",
+  "description": "<p>Reproducibility code for: <em>Pretraining Domain Predicts Test–Retest Reproducibility of Foundation Models on PET: A Pre-Registered Nine-Task Benchmark with Contamination Audit (PET-FM-Bench)</em>.</p><p>Repository contents: 47 Kaggle-runnable analysis notebooks (per-task preprocessing and embedding extraction; Phase 1 FM checkpoint manifest; Phase 2 contamination audit; Phase 4 patient-level splits; IBSI pyradiomics baseline via MIRP; 10-seed random-initialisation control; Phase 5 main probe pipeline at SEED = 42; manuscript figure rendering); a Python source package (<code>src/contamination</code>, <code>src/preprocess</code>, <code>src/probes</code>); cohort acquisition guide; data dictionary for the public result CSVs; and the four manuscript figures (PNG 300 dpi + vector PDF) regeneratable from the deposited public Kaggle dataset.</p><p>The benchmark was pre-registered on OSF on 2026-04-25 prior to any probe analysis. Twelve methodological deviations were logged in the amendment log before each affected analysis was executed. Run-time pipeline SHA-256: <code>7ca32e8bb244845df6313de146d01ac8aaf7871cfcbccb2fdb61e62374227401</code> (<code>probe_analysis.py</code> v6, 2,960 lines).</p>",
+  "creators": [
+    {
+      "name": "Farquhar, Hayden",
+      "orcid": "0009-0002-6226-440X",
+      "affiliation": "Independent Researcher, Finley NSW, Australia"
+    }
+  ],
+  "license": "MIT",
+  "access_right": "open",
+  "keywords": [
+    "foundation models",
+    "positron emission tomography",
+    "PET",
+    "benchmarking",
+    "transfer learning",
+    "contamination audit",
+    "pre-registration",
+    "IBSI radiomics",
+    "test-retest reproducibility",
+    "medical imaging",
+    "FMCIB",
+    "CT-FM",
+    "BiomedCLIP",
+    "RAD-DINO",
+    "DINOv2"
+  ],
+  "communities": [],
+  "related_identifiers": [
+    {
+      "identifier": "10.17605/OSF.IO/DQ2JA",
+      "relation": "isSupplementedBy",
+      "scheme": "doi",
+      "resource_type": "publication-preregistration"
+    },
+    {
+      "identifier": "https://www.kaggle.com/datasets/haydenfarquhar/pet-fm-bench-formal-probe-results-v1",
+      "relation": "isSupplementedBy",
+      "scheme": "url",
+      "resource_type": "dataset"
+    }
+  ],
+  "subjects": [
+    {"term": "Foundation models", "scheme": "url", "identifier": "https://en.wikipedia.org/wiki/Foundation_models"},
+    {"term": "Positron emission tomography", "scheme": "url", "identifier": "https://en.wikipedia.org/wiki/Positron_emission_tomography"}
+  ],
+  "language": "eng"
+}
