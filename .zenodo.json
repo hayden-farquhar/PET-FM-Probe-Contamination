@@ -34,7 +34,7 @@
       "identifier": "10.17605/OSF.IO/DQ2JA",
       "relation": "isSupplementedBy",
       "scheme": "doi",
-      "resource_type": "publication-preregistration"
+      "resource_type": "publication-other"
     },
     {
       "identifier": "https://www.kaggle.com/datasets/haydenfarquhar/pet-fm-bench-formal-probe-results-v1",
