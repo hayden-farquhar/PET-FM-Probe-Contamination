@@ -24,6 +24,12 @@ keywords:
   - test-retest reproducibility
   - medical imaging
 identifiers:
+  - description: "Zenodo concept DOI (all versions; resolves to the latest release)"
+    type: doi
+    value: "10.5281/zenodo.19941231"
+  - description: "Zenodo DOI for v1.0.0"
+    type: doi
+    value: "10.5281/zenodo.19941232"
   - description: "OSF pre-registration"
     type: doi
     value: "10.17605/OSF.IO/DQ2JA"

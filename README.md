@@ -1,5 +1,7 @@
 # PET-FM-Bench
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19941231.svg)](https://doi.org/10.5281/zenodo.19941231) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 Code repository for: **Pretraining Domain Predicts Test–Retest Reproducibility of Foundation Models on PET: A Pre-Registered Nine-Task Benchmark with Contamination Audit (PET-FM-Bench).**
 
 Hayden Farquhar MBBS MPHTM. Independent Researcher, Finley NSW, Australia. ORCID [0009-0002-6226-440X](https://orcid.org/0009-0002-6226-440X).
@@ -9,7 +11,8 @@ Hayden Farquhar MBBS MPHTM. Independent Researcher, Finley NSW, Australia. ORCID
 | Pre-registration | OSF [10.17605/OSF.IO/DQ2JA](https://doi.org/10.17605/OSF.IO/DQ2JA) (registered 2026-04-25) |
 | Result CSVs (Phase 5 freeze + Phase 2 v2 contamination audit) | Kaggle [`pet-fm-bench-formal-probe-results-v1`](https://www.kaggle.com/datasets/haydenfarquhar/pet-fm-bench-formal-probe-results-v1) (CC0-1.0) |
 | Preprint | medRxiv (DOI to be added when posted) |
-| Software DOI | Zenodo (concept DOI to be added on first release) |
+| Software (all versions) | Zenodo concept DOI [10.5281/zenodo.19941231](https://doi.org/10.5281/zenodo.19941231) — resolves to the latest release |
+| Software (this release) | Zenodo v1.0.0 DOI [10.5281/zenodo.19941232](https://doi.org/10.5281/zenodo.19941232) |
 
 ## Overview
 
@@ -129,7 +132,9 @@ The 12 result CSVs that feed these figures are deposited as the public Kaggle da
 
 ## Citation
 
-If you use this code or its outputs, please cite:
+If you use this code, please cite both the manuscript and the software DOI:
+
+**Manuscript:**
 
 ```
 Farquhar H. Pretraining Domain Predicts Test–Retest Reproducibility of
@@ -137,6 +142,15 @@ Foundation Models on PET: A Pre-Registered Nine-Task Benchmark with
 Contamination Audit (PET-FM-Bench). 2026.
 Pre-registration: OSF DOI 10.17605/OSF.IO/DQ2JA.
 ```
+
+**Software (this repository):**
+
+```
+Farquhar H. PET-FM-Bench: Analysis Code (v1.0.0). 2026.
+Zenodo. doi:10.5281/zenodo.19941231
+```
+
+The Zenodo DOI above (`zenodo.19941231`) is the **concept DOI** — it resolves to the latest published version across all future releases. To pin a specific release, use the version-specific DOI: `10.5281/zenodo.19941232` for v1.0.0.
 
 A `CITATION.cff` is included so GitHub auto-renders the citation widget.
 
