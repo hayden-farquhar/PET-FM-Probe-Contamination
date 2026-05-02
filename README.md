@@ -11,7 +11,7 @@ Hayden Farquhar MBBS MPHTM. Independent Researcher, Finley NSW, Australia. ORCID
 | Pre-registration | OSF [10.17605/OSF.IO/DQ2JA](https://doi.org/10.17605/OSF.IO/DQ2JA) (registered 2026-04-25) |
 | Result CSVs (Phase 5 freeze + Phase 2 v2 contamination audit) | Kaggle [`pet-fm-bench-formal-probe-results-v1`](https://www.kaggle.com/datasets/haydenfarquhar/pet-fm-bench-formal-probe-results-v1) (CC0-1.0) |
 | Calibration per-prediction outputs (Amendment A13) | Kaggle [`pet-fm-bench-calibration-perpred-v1`](https://www.kaggle.com/datasets/haydenfarquhar/pet-fm-bench-calibration-perpred-v1) (CC0-1.0) |
-| Preprint | Zenodo (DOI to be added when posted) |
+| Preprint | Zenodo concept DOI (all versions) [10.5281/zenodo.19969822](https://doi.org/10.5281/zenodo.19969822) |
 | Software (all versions) | Zenodo concept DOI [10.5281/zenodo.19941231](https://doi.org/10.5281/zenodo.19941231) — resolves to the latest release |
 | Software (current release v1.1.0) | Zenodo version-specific DOI [10.5281/zenodo.19969849](https://doi.org/10.5281/zenodo.19969849) |
 

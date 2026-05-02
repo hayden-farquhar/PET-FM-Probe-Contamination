@@ -38,6 +38,9 @@ identifiers:
   - description: "OSF pre-registration"
     type: doi
     value: "10.17605/OSF.IO/DQ2JA"
+  - description: "Preprint (Zenodo concept DOI; resolves to the latest preprint version)"
+    type: doi
+    value: "10.5281/zenodo.19969822"
   - description: "Public Kaggle dataset of Phase 5 result CSVs"
     type: url
     value: "https://www.kaggle.com/datasets/haydenfarquhar/pet-fm-bench-formal-probe-results-v1"
@@ -52,4 +55,4 @@ preferred-citation:
       given-names: Hayden
       orcid: "https://orcid.org/0009-0002-6226-440X"
   year: 2026
-  doi: "10.17605/OSF.IO/DQ2JA"
+  doi: "10.5281/zenodo.19969822"
