@@ -32,6 +32,9 @@ identifiers:
   - description: "Zenodo DOI for v1.0.0"
     type: doi
     value: "10.5281/zenodo.19941232"
+  - description: "Zenodo DOI for v1.1.0 (this release; adds Amendment A13 calibration sub-study)"
+    type: doi
+    value: "10.5281/zenodo.19969849"
   - description: "OSF pre-registration"
     type: doi
     value: "10.17605/OSF.IO/DQ2JA"

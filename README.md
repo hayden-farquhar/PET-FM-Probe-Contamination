@@ -13,7 +13,7 @@ Hayden Farquhar MBBS MPHTM. Independent Researcher, Finley NSW, Australia. ORCID
 | Calibration per-prediction outputs (Amendment A13) | Kaggle [`pet-fm-bench-calibration-perpred-v1`](https://www.kaggle.com/datasets/haydenfarquhar/pet-fm-bench-calibration-perpred-v1) (CC0-1.0) |
 | Preprint | Zenodo (DOI to be added when posted) |
 | Software (all versions) | Zenodo concept DOI [10.5281/zenodo.19941231](https://doi.org/10.5281/zenodo.19941231) — resolves to the latest release |
-| Software (current release v1.1.0) | Zenodo version-specific DOI minted at release |
+| Software (current release v1.1.0) | Zenodo version-specific DOI [10.5281/zenodo.19969849](https://doi.org/10.5281/zenodo.19969849) |
 
 ## Overview
 
@@ -153,7 +153,7 @@ Farquhar H. PET-FM-Bench: Analysis Code (v1.1.0). 2026.
 Zenodo. doi:10.5281/zenodo.19941231
 ```
 
-The Zenodo DOI above (`zenodo.19941231`) is the **concept DOI** — it resolves to the latest published version across all future releases. The version-specific DOI for v1.0.0 is `10.5281/zenodo.19941232`; the version-specific DOI for v1.1.0 is minted at GitHub release time and listed in the linked Zenodo record.
+The Zenodo DOI above (`zenodo.19941231`) is the **concept DOI** — it resolves to the latest published version across all future releases. The version-specific DOI for v1.0.0 is `10.5281/zenodo.19941232`; the version-specific DOI for v1.1.0 is `10.5281/zenodo.19969849`.
 
 A `CITATION.cff` is included so GitHub auto-renders the citation widget.
 
