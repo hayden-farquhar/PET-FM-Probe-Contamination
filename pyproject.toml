@@ -1,6 +1,6 @@
 [project]
 name = "pet-fm-bench"
-version = "0.1.0"
+version = "0.2.0"
 description = "PET-FM-Bench: Cross-Foundation-Model Benchmark on Nuclear-Medicine Tasks with Systematic Pretraining Contamination Audit"
 authors = [{ name = "Hayden Farquhar", email = "hayden.farquhar@icloud.com" }]
 license = { text = "MIT" }

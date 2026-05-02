@@ -10,9 +10,10 @@ Hayden Farquhar MBBS MPHTM. Independent Researcher, Finley NSW, Australia. ORCID
 |---|---|
 | Pre-registration | OSF [10.17605/OSF.IO/DQ2JA](https://doi.org/10.17605/OSF.IO/DQ2JA) (registered 2026-04-25) |
 | Result CSVs (Phase 5 freeze + Phase 2 v2 contamination audit) | Kaggle [`pet-fm-bench-formal-probe-results-v1`](https://www.kaggle.com/datasets/haydenfarquhar/pet-fm-bench-formal-probe-results-v1) (CC0-1.0) |
-| Preprint | medRxiv (DOI to be added when posted) |
+| Calibration per-prediction outputs (Amendment A13) | Kaggle [`pet-fm-bench-calibration-perpred-v1`](https://www.kaggle.com/datasets/haydenfarquhar/pet-fm-bench-calibration-perpred-v1) (CC0-1.0) |
+| Preprint | Zenodo (DOI to be added when posted) |
 | Software (all versions) | Zenodo concept DOI [10.5281/zenodo.19941231](https://doi.org/10.5281/zenodo.19941231) — resolves to the latest release |
-| Software (this release) | Zenodo v1.0.0 DOI [10.5281/zenodo.19941232](https://doi.org/10.5281/zenodo.19941232) |
+| Software (current release v1.1.0) | Zenodo version-specific DOI minted at release |
 
 ## Overview
 
@@ -24,10 +25,12 @@ The headline registration-grade finding is that **pretraining-domain match to PE
 
 | Folder | Purpose |
 |---|---|
-| `notebooks/` | All analysis Kaggle notebooks (preprocess + embed per task, contamination audit, IBSI baseline, probes, figure rendering). Plus `manuscript_figures_all.ipynb` for one-click figure regeneration. |
+| `notebooks/` | Kaggle-runnable analysis notebooks (preprocess + embed per task, contamination audit, IBSI baseline, probes, calibration inference, figure rendering). |
+| `scripts/` | Local CPU-only analysis scripts (`compute_calibration.py`, `render_efigure_6.py`) that run on the per-prediction outputs from the Kaggle calibration notebook. |
 | `src/` | Python package modules used by multiple notebooks (probe classes, contamination utilities, preprocessing helpers). |
 | `data/` | Cohort acquisition instructions. The patient-level imaging cohorts are not redistributed here — see `data/README.md` for download URLs and access requirements per cohort. |
-| `outputs/figures/` | The four manuscript figures rendered at 300 dpi PNG and vector PDF, regeneratable from `notebooks/manuscript_figures_all.py`. |
+| `outputs/figures/` | The four manuscript figures + eFigure 6 (calibration) rendered at 300 dpi PNG and vector PDF. |
+| `outputs/calibration/` | A13 calibration result CSV + per-decile parquets (reliability bins for T1/T5/T7; Cox calibration deciles for T3/T4). |
 | `docs/reproduction_guide.md` | Step-by-step end-to-end reproduction guide. |
 | `data_dictionary.md` | Column definitions for every CSV in the public Kaggle result dataset. |
 | `pyproject.toml` | Python dependency specification. |
@@ -115,9 +118,9 @@ The Phase 5 freeze CSVs are bit-identical between independent runs separated by 
 
 ## Pre-registration and amendments
 
-The benchmark was pre-registered on the Open Science Framework on 2026-04-25 prior to any probe analysis (DOI [10.17605/OSF.IO/DQ2JA](https://doi.org/10.17605/OSF.IO/DQ2JA)). Twelve methodological deviations (A1–A12) were logged in the OSF amendment log before each affected analysis was executed. The amendment log v12 is deposited at the OSF project root with SHA-256 `ad4a84a0a48754d5997ed0f3dbff8ef0b717f880b2d12bb1c34a42faff62ad3d`.
+The benchmark was pre-registered on the Open Science Framework on 2026-04-25 prior to any probe analysis (DOI [10.17605/OSF.IO/DQ2JA](https://doi.org/10.17605/OSF.IO/DQ2JA)). Thirteen methodological deviations / additions (A1–A13) were logged in the OSF amendment log before each affected analysis was executed. The current amendment log (v14, post-A13 closure) is deposited at the OSF project root with SHA-256 `3547f6745e4f2290ea23e954f99c946a41f8c43ac33f16226fe0ae55a54e237e`. Amendment A13 added a calibration sub-study (binary tasks: Brier, calibration intercept and slope, ECE, reliability diagrams; Cox tasks: Kaplan–Meier observed survival per decile of predicted survival at 24 months) following TRIPOD+AI Item 13 and CLAIM 2024 Item 26; per-prediction outputs are public on Kaggle (`pet-fm-bench-calibration-perpred-v1`, CC0-1.0), and the rendered eFigure 6 + calibration_results.csv are in `outputs/`.
 
-A summary of amendments and their rationales is in the manuscript Methods §"Registered deviations (A1–A12)".
+A summary of amendments and their rationales is in the manuscript Methods + Supplementary §"Registered deviations (A1–A13)".
 
 ## Outputs in this repository
 
@@ -146,11 +149,11 @@ Pre-registration: OSF DOI 10.17605/OSF.IO/DQ2JA.
 **Software (this repository):**
 
 ```
-Farquhar H. PET-FM-Bench: Analysis Code (v1.0.0). 2026.
+Farquhar H. PET-FM-Bench: Analysis Code (v1.1.0). 2026.
 Zenodo. doi:10.5281/zenodo.19941231
 ```
 
-The Zenodo DOI above (`zenodo.19941231`) is the **concept DOI** — it resolves to the latest published version across all future releases. To pin a specific release, use the version-specific DOI: `10.5281/zenodo.19941232` for v1.0.0.
+The Zenodo DOI above (`zenodo.19941231`) is the **concept DOI** — it resolves to the latest published version across all future releases. The version-specific DOI for v1.0.0 is `10.5281/zenodo.19941232`; the version-specific DOI for v1.1.0 is minted at GitHub release time and listed in the linked Zenodo record.
 
 A `CITATION.cff` is included so GitHub auto-renders the citation widget.
 

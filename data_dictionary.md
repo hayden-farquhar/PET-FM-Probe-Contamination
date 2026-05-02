@@ -95,12 +95,71 @@ Long-format Phase 2 v2 audit, 30 rows (the 24 Tier 5 cells are implicit; the aud
 | 4 | Caption-scan or institutional-provenance proxy (registered Tier; not exercised in the v2 audit) | (none in v2) |
 | 5 | Declared clean by training-data construction | DINOv2 × any task (ImageNet-only); RAD-DINO × any task (chest-X-ray-only); random_init (untrained) |
 
+## A13 calibration per-prediction parquets (Kaggle `pet-fm-bench-calibration-perpred-v1`)
+
+Per-prediction outputs from re-running the registered probe pipeline at SEED = 42 with per-prediction dump enabled. The Phase 5 freeze CSVs aggregate metrics; these parquets are the per-prediction inputs needed to compute reliability diagrams and Cox calibration plots.
+
+### Binary classification per-patch (`perpred_t1.parquet`, `perpred_t5.parquet`, `perpred_t7.parquet`)
+
+| Column | Description |
+|---|---|
+| `fm` | FM name (one of: fmcib, ct_fm, biomedclip, rad_dino, dinov2, random_init_seed_0..9) |
+| `task` | Task label (`t1`, `t5`, `t7`) |
+| `patient_id` | Patient identifier (TCIA-format string) |
+| `patch_id` | Patch identifier within the patient (or `NA` for patient-level T7) |
+| `y_true` | Ground-truth label (0 or 1) |
+| `y_proba` | Probe-predicted probability of class 1 |
+| `view` | Embedding view (volume, axial, coronal, sagittal) |
+| `layer` | Embedding layer (pool, cls) |
+| `best_C` | L2 regularisation constant selected by inner-loop GroupKFold |
+
+### Cox survival per-patient (`perpred_t3.parquet`, `perpred_t4.parquet`)
+
+| Column | Description |
+|---|---|
+| `fm` | FM name |
+| `task` | Task label (`t3`, `t4`) |
+| `patient_id` | Patient identifier |
+| `event` | Event indicator (1 = event observed; 0 = censored) |
+| `time` | Time-to-event or censoring (days) |
+| `linear_predictor` | Cox model linear predictor (log relative hazard) |
+| `surv_24mo` | Predicted survival probability at 24 months |
+| `best_alpha` | L2 regularisation alpha selected by inner-loop StratifiedKFold |
+| `use_pca` | Whether PCA was applied before Cox fit (events-per-variable < 5) |
+| `n_pca` | Number of PCA components if `use_pca=True` |
+
+## A13 aggregated calibration metrics (`outputs/calibration/calibration_results.csv`)
+
+One row per (FM, task) cell. Binary tasks (T1, T5, T7) populate Brier/ECE/intercept/slope columns; Cox tasks (T3, T4) populate horizon, n_events, mean_pred_surv, km_obs_surv, and decile-OLS columns. The 10 random_init seeds are collapsed to a single `random_init` row via seed-median.
+
+| Column | Description |
+|---|---|
+| `fm` | FM name (or `random_init` for the seed-aggregated baseline) |
+| `task` | Task label |
+| `n`, `n_patients` | Number of predictions and unique patients |
+| `brier`, `brier_lo`, `brier_hi` | Brier score with 95 % patient-clustered bootstrap CI (binary) |
+| `ece`, `ece_lo`, `ece_hi` | Expected Calibration Error (10-bin equal-width) with 95 % CI (binary) |
+| `intercept`, `intercept_lo`, `intercept_hi` | Calibration intercept a₀ from logistic regression of y on logit(p̂) (binary) |
+| `slope`, `slope_lo`, `slope_hi` | Calibration slope b (binary) |
+| `horizon_months` | Cox-task evaluation horizon (24 mo for T3 and T4) |
+| `n_events` | Number of events at the horizon (Cox tasks) |
+| `mean_pred_surv` | Mean predicted survival across the cohort (Cox tasks) |
+| `km_obs_surv` | Mean Kaplan–Meier observed survival across deciles (Cox tasks) |
+| `calibration_slope_decile` | Decile-OLS slope of observed-vs-predicted survival (Cox tasks) |
+| `calibration_intercept_decile` | Decile-OLS intercept (Cox tasks) |
+| `n_seeds` | Number of random_init seeds aggregated (10 for the random_init row) |
+
 ## Reproducibility hashes
 
 | Artefact | SHA-256 |
 |---|---|
-| Phase 5 freeze CSVs (12 result CSVs) | per-file in OSF amendment log v12 |
+| Phase 5 freeze CSVs (12 result CSVs) | per-file hashes in OSF amendment log v14 |
 | Phase 2 v2 contamination audit (`contamination_audit.csv`) | `7e3b7b7344177027b9d0db924466193bacdcef0ed02d01fe99b3a6183205eb44` |
 | Phase 4 v4 patient-level splits (`task_splits.parquet`) | `3855e483…` |
 | Run-time pipeline (`probe_analysis.py` v6, 2,960 lines) | `7ca32e8bb244845df6313de146d01ac8aaf7871cfcbccb2fdb61e62374227401` |
-| Amendment log v12 | `ad4a84a0a48754d5997ed0f3dbff8ef0b717f880b2d12bb1c34a42faff62ad3d` |
+| Amendment log v14 (post-A13 closure) | `3547f6745e4f2290ea23e954f99c946a41f8c43ac33f16226fe0ae55a54e237e` |
+| `perpred_t1.parquet` (A13 binary T1) | `16eee927b6660b73bda144aa10c1e4d14c1073df8d3e7aa821dfbc729f2f53bf` |
+| `perpred_t3.parquet` (A13 Cox T3 RFS) | `b9d3ee391129c97a28a00332891d997aeaa7eb90c31162887837bcfba84fb7b2` |
+| `perpred_t4.parquet` (A13 Cox T4 OS) | `8b18fa27cb4172e9edf5e4dc9481b612a6808c16bf77af2000512f01e3343fb5` |
+| `perpred_t5.parquet` (A13 binary T5 zero-shot) | `df21be97736963adb5a10c80b7af277b45be1945d5571fe53b35703250820883` |
+| `perpred_t7.parquet` (A13 binary T7 2-year OS) | `6558b170e21d2bf103266634d4386207537cff13f8b879856a03b1bf6224425c` |

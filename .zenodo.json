@@ -1,7 +1,8 @@
 {
   "title": "PET-FM-Bench: Pre-Registered Cross-Foundation-Model Benchmark on Nuclear-Medicine Imaging Tasks with Systematic Contamination Audit — Analysis Code",
   "upload_type": "software",
-  "description": "<p>Reproducibility code for: <em>Pretraining Domain Predicts Test–Retest Reproducibility of Foundation Models on PET: A Pre-Registered Nine-Task Benchmark with Contamination Audit (PET-FM-Bench)</em>.</p><p>Repository contents: 47 Kaggle-runnable analysis notebooks (per-task preprocessing and embedding extraction; Phase 1 FM checkpoint manifest; Phase 2 contamination audit; Phase 4 patient-level splits; IBSI pyradiomics baseline via MIRP; 10-seed random-initialisation control; Phase 5 main probe pipeline at SEED = 42; manuscript figure rendering); a Python source package (<code>src/contamination</code>, <code>src/preprocess</code>, <code>src/probes</code>); cohort acquisition guide; data dictionary for the public result CSVs; and the four manuscript figures (PNG 300 dpi + vector PDF) regeneratable from the deposited public Kaggle dataset.</p><p>The benchmark was pre-registered on OSF on 2026-04-25 prior to any probe analysis. Twelve methodological deviations were logged in the amendment log before each affected analysis was executed. Run-time pipeline SHA-256: <code>7ca32e8bb244845df6313de146d01ac8aaf7871cfcbccb2fdb61e62374227401</code> (<code>probe_analysis.py</code> v6, 2,960 lines).</p>",
+  "version": "1.1.0",
+  "description": "<p>Reproducibility code for: <em>Pretraining Domain Predicts Test–Retest Reproducibility of Foundation Models on PET: A Pre-Registered Nine-Task Benchmark with Contamination Audit (PET-FM-Bench)</em>.</p><p>Repository contents: Kaggle-runnable analysis notebooks (per-task preprocessing and embedding extraction; Phase 1 FM checkpoint manifest; Phase 2 contamination audit; Phase 4 patient-level splits; IBSI pyradiomics baseline via MIRP; 10-seed random-initialisation control; Phase 5 main probe pipeline at SEED = 42; A13 calibration per-prediction inference; manuscript figure rendering); local CPU-only scripts for Brier / calibration intercept and slope / ECE / IPCW-Cox calibration computation and eFigure 6 rendering; a Python source package (<code>src/contamination</code>, <code>src/preprocess</code>, <code>src/probes</code>); cohort acquisition guide; data dictionary for the public result and per-prediction parquets; and the four main manuscript figures plus eFigure 6 (PNG 300 dpi + vector PDF) regeneratable from the deposited public Kaggle datasets.</p><p>The benchmark was pre-registered on OSF on 2026-04-25 prior to any probe analysis. Thirteen methodological deviations / additions (A1–A13) were logged in the amendment log before each affected analysis was executed. Amendment A13 added a calibration sub-study following TRIPOD+AI Item 13 and CLAIM 2024 Item 26. Run-time pipeline SHA-256: <code>7ca32e8bb244845df6313de146d01ac8aaf7871cfcbccb2fdb61e62374227401</code> (<code>probe_analysis.py</code> v6, 2,960 lines). Amendment log v14 SHA-256: <code>3547f6745e4f2290ea23e954f99c946a41f8c43ac33f16226fe0ae55a54e237e</code>. Changes from v1.0.0 to v1.1.0: added Amendment A13 calibration sub-study (binary tasks T1/T5/T7 and Cox tasks T3/T4); added <code>notebooks/calibration_inference.py</code> + <code>calibration_inference_t4_fix.py</code> (Kaggle); added <code>scripts/compute_calibration.py</code> + <code>scripts/render_efigure_6.py</code> (local CPU); added <code>outputs/calibration/</code> with calibration_results.csv and per-decile parquets; added eFigure 6 to outputs/figures/; added 5 references to manuscript (PERCIST, Lugano, iPERCIST, FDA AI/ML SaMD, EU AI Act) and SNMMI clinical-translation framing.</p>",
   "creators": [
     {
       "name": "Farquhar, Hayden",
@@ -38,6 +39,12 @@
     },
     {
       "identifier": "https://www.kaggle.com/datasets/haydenfarquhar/pet-fm-bench-formal-probe-results-v1",
+      "relation": "isSupplementedBy",
+      "scheme": "url",
+      "resource_type": "dataset"
+    },
+    {
+      "identifier": "https://www.kaggle.com/datasets/haydenfarquhar/pet-fm-bench-calibration-perpred-v1",
       "relation": "isSupplementedBy",
       "scheme": "url",
       "resource_type": "dataset"
